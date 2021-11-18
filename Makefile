@@ -21,7 +21,7 @@ testcov:
 	@export XDG_DATA_HOME='./tmp_home' && \
 	export XDG_CONFIG_HOME='./tmp_home' && \
 	export TEST_COV=true && \
-	nvim --headless --noplugin --clean -u lua/tests/minimal_init.lua -c "lua require'plenary.test_harness'.test_directory( 'lua/tests/', { minimal_init = './lua/tests/minimal_init.lua' })"
+	nvim --headless --noplugin --clean -u lua/tests/minimal_init.lua -c "lua require'plenary.test_harness'.test_directory( 'lua/tests/', { minimal_init = './lua/tests/minimal_init.lua' })" 2>&1 1>/dev/null
 	@luacov-console lua/
 	@luacov-console -s
 ifeq ($(NOCLEAN), )
